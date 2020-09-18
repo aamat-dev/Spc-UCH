@@ -1,5 +1,6 @@
 package fr.aamat.view;
 
+import fr.aamat.view.planning.MainPlanningView;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -9,7 +10,11 @@ import javafx.scene.image.ImageView;
 
 public class BarreMenu extends MenuBar {
 
-    public BarreMenu() {
+    private final MainView mainView;
+
+    public BarreMenu(MainView mainView) {
+
+        this.mainView = mainView;
 
         //Menu Fichier
         MenuItem fermer = new MenuItem("Fermer");
@@ -21,27 +26,28 @@ public class BarreMenu extends MenuBar {
         this.getMenus().add(fichier);
 
         //Menu Edition
-        MenuItem aVoir = new MenuItem("A voir...");
+        MenuItem planning = new MenuItem("Planning");
+        planning.setOnAction(e -> showPlanning());
 
         Menu edition = new Menu("Edition");
-        edition.getItems().add(aVoir);
+        edition.getItems().add(planning);
         this.getMenus().add(edition);
 
         //Menu Aide
-        MenuItem aPropos = new MenuItem("A propos de...");
-        aPropos.setOnAction(e -> afficherApropos());
+        MenuItem about = new MenuItem("A propos de...");
+        about.setOnAction(e -> showAbout());
 
         Menu aide = new Menu("Aide");
-        aide.getItems().add(aPropos);
+        aide.getItems().add(about);
         this.getMenus().add(aide);
-
-
-
-
 
     }
 
-    private void afficherApropos() {
+    private void showPlanning() {
+        mainView.setCenterContent(new MainPlanningView());
+    }
+
+    private void showAbout() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("A propos de...");
         alert.setHeaderText("Information sur le logiciel");
