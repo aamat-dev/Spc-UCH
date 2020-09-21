@@ -1,29 +1,30 @@
 package fr.aamat.view.planning;
 
-import javafx.scene.canvas.Canvas;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
-import javafx.scene.transform.Affine;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
-public class CanevasPlanningView extends Pane {
+public class CanevasPlanningView extends VBox {
 
-    private final Canvas canvas;
-    private final Affine affine;
+    private EntetePlanningView entetePlanningView;
+    private EnteteMachineView enteteMachineView;
+    private HBox hBox;
+    private final int largeurCellule = 60;
+    private final int hauteurCellule = 30;
 
     public CanevasPlanningView() {
-        this.canvas = new Canvas(800, 400);
-        this.canvas.setOnMousePressed(this::handlePressed);
-        this.canvas.setOnMouseReleased(this::handleReleased);
-        this.canvas.setOnMouseDragged(this::handleCursorMoved);
-        this.canvas.setOnMouseMoved(this::handleCursorMoved);
 
-        this.canvas.widthProperty().bind(this.widthProperty());
-        this.canvas.heightProperty().bind(this.heightProperty());
+        this.entetePlanningView = new EntetePlanningView(largeurCellule, hauteurCellule);
+        this.enteteMachineView = new EnteteMachineView(largeurCellule, hauteurCellule);
+        this.hBox = new HBox(enteteMachineView);
 
-        this.getChildren().add(this.canvas);
+        this.getChildren().addAll(this.entetePlanningView,this.hBox);
 
-        this.affine = new Affine();
-        this.affine.appendScale(400 / 10f, 400 / 10f);
+
+        this.setOnMousePressed(this::handlePressed);
+        this.setOnMouseReleased(this::handleReleased);
+        this.setOnMouseDragged(this::handleCursorMoved);
+        this.setOnMouseMoved(this::handleCursorMoved);
 
     }
 

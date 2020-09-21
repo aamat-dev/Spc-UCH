@@ -18,7 +18,7 @@ public class BarreMenu extends MenuBar {
 
         //Menu Fichier
         MenuItem fermer = new MenuItem("Fermer");
-        fermer.setGraphic(new ImageView(new Image("img/close_icon.png", 25, 25, false, false)));
+        fermer.setGraphic(new ImageView(new Image(getClass().getResource("/img/close_icon.png").toExternalForm(),25,25,true,false)));
         fermer.setOnAction(e -> System.exit(0));
 
         Menu fichier = new Menu("Fichier");

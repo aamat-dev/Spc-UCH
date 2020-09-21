@@ -36,5 +36,5 @@ public class Machine {
         this.etat = etat;
     }
 
-    private enum Parc {CN, Mecanique}
+    public enum Parc {CN, Mecanique}
 }

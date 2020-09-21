@@ -11,6 +11,9 @@ public class Production {
     private Integer dureeReglage;
     private Etat etat;
 
+    public Production() {
+    }
+
     public Production(Reference reference, Machine machine, Date dateDebut, Integer dureeProduction, Integer dureeReglage, Etat etat) {
         this.reference = reference;
         this.machine = machine;

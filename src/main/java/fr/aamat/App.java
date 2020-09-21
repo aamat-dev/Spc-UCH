@@ -1,6 +1,5 @@
 package fr.aamat;
 
-import fr.aamat.components.planning.PlanningComponent;
 import fr.aamat.view.MainView;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -23,20 +22,8 @@ public class App extends Application {
 
         ApplicationContext context = new ApplicationContext(mainView);
 
-        List<ApplicationComponent> components = new LinkedList<>();
-        components.add(new PlanningComponent());
-
-
-        for (ApplicationComponent component : components) {
-            component.initState(context);
-        }
-
-        for (ApplicationComponent component : components) {
-            component.initComponent(context);
-        }
-
         stage.setTitle("SpUch - Suivi de production UCH");
-        stage.getIcons().add(new Image("img/logo_UCH.png"));
+        stage.getIcons().add(new Image(getClass().getResource("/img/logo_UCH.png").toExternalForm()));
         stage.setScene(new Scene(mainView, 1200, 800));
         stage.show();
     }

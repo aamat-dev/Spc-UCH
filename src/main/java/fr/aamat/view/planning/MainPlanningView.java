@@ -9,7 +9,7 @@ public class MainPlanningView extends BorderPane {
 
     public MainPlanningView() {
 
-        this.getStylesheets().add("style/planningStyle.css");
+        this.getStylesheets().add(getClass().getResource("/style/planningStyle.css").toExternalForm());
 
         /*---------------------------------
         Barre d'outils
@@ -22,7 +22,7 @@ public class MainPlanningView extends BorderPane {
         /*---------------------------------
         Barre Canevas planning
         ----------------------------------*/
-        GridPane grillePlanning = new GridPane();
+        CanevasPlanningView grillePlanning = new CanevasPlanningView();
         this.setCenter(grillePlanning);
 
     }
