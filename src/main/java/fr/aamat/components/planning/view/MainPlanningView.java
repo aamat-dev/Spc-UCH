@@ -1,9 +1,8 @@
-package fr.aamat.view.planning;
+package fr.aamat.components.planning.view;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 
 public class MainPlanningView extends BorderPane {
 

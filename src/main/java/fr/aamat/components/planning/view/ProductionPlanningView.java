@@ -1,4 +1,4 @@
-package fr.aamat.view.planning;
+package fr.aamat.components.planning.view;
 
 
 import fr.aamat.model.Production;

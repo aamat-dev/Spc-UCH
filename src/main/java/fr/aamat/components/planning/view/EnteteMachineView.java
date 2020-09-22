@@ -1,4 +1,4 @@
-package fr.aamat.view.planning;
+package fr.aamat.components.planning.view;
 
 import fr.aamat.model.Machine;
 import javafx.collections.FXCollections;
@@ -7,16 +7,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 
-import java.util.Collection;
-import java.util.List;
-
 public class EnteteMachineView extends ScrollPane {
 
     private final int largeurCellule;
     private final int hauteurCellule;
-    private GridPane grille;
+    private final GridPane grille;
 
-    private ObservableList<Machine> listeMachine;
+    private final ObservableList<Machine> listeMachine;
 
     public EnteteMachineView(int largeurCellule, int hauteurCellule) {
 

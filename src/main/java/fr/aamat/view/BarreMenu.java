@@ -1,6 +1,6 @@
 package fr.aamat.view;
 
-import fr.aamat.view.planning.MainPlanningView;
+import fr.aamat.components.planning.view.MainPlanningView;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;

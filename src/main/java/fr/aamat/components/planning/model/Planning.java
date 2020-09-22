@@ -1,12 +1,12 @@
-package fr.aamat.components.planning;
+package fr.aamat.components.planning.model;
 
 import fr.aamat.model.Production;
 
 public class Planning {
 
-    private int width;
-    private int height;
-    private Production[][] planning;
+    private final int width;
+    private final int height;
+    private final Production[][] planning;
 
     public Planning(int width, int height, Production[][] planning) {
         this.width = width;

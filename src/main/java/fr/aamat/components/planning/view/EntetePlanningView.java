@@ -1,4 +1,4 @@
-package fr.aamat.view.planning;
+package fr.aamat.components.planning.view;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -15,9 +15,9 @@ import java.util.Locale;
 
 public class EntetePlanningView extends ScrollPane {
 
-    private GridPane grille;
-    private final int largeurCellule;
-    private final int hauteurCellule;
+    private final GridPane grille;
+    private final Integer largeurCellule;
+    private final Integer hauteurCellule;
 
     private final Year anneeCourante = Year.now();
     private final int nbJourAnnee = anneeCourante.length();
@@ -27,14 +27,13 @@ public class EntetePlanningView extends ScrollPane {
     private int semaineCourante;
     private int indexSemaine;
 
-    public EntetePlanningView(int largeurCellule, int hauteurCellule) {
-
-        this.largeurCellule = largeurCellule;
-        this.hauteurCellule = hauteurCellule;
+    public EntetePlanningView(Integer largeurCellule, Integer hauteurCellule) {
 
         this.vbarPolicyProperty().set(ScrollBarPolicy.NEVER);
         this.hbarPolicyProperty().set(ScrollBarPolicy.NEVER);
 
+        this.largeurCellule = largeurCellule;
+        this.hauteurCellule = hauteurCellule;
 
         this.grille = new GridPane();
         setEnTete();

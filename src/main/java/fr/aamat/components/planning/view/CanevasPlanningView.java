@@ -1,25 +1,31 @@
-package fr.aamat.view.planning;
+package fr.aamat.components.planning.view;
 
+import javafx.geometry.Insets;
+import javafx.scene.control.ScrollBar;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class CanevasPlanningView extends VBox {
 
-    private EntetePlanningView entetePlanningView;
-    private EnteteMachineView enteteMachineView;
-    private HBox hBox;
-    private final int largeurCellule = 60;
-    private final int hauteurCellule = 30;
+    private final EntetePlanningView entetePlanningView;
+    private final EnteteMachineView enteteMachineView;
+    private final HBox hBox;
+    private final ScrollBar scrollBar;
+
+    private final Integer largeurCellule = 60;
+    private final Integer hauteurCellule = 30;
 
     public CanevasPlanningView() {
 
         this.entetePlanningView = new EntetePlanningView(largeurCellule, hauteurCellule);
         this.enteteMachineView = new EnteteMachineView(largeurCellule, hauteurCellule);
         this.hBox = new HBox(enteteMachineView);
+        this.scrollBar = new ScrollBar();
 
-        this.getChildren().addAll(this.entetePlanningView,this.hBox);
+        this.getChildren().addAll(this.entetePlanningView, this.hBox, this.scrollBar);
 
+        setMargin(entetePlanningView, new Insets(0, 0, 0, largeurCellule + 1));
 
         this.setOnMousePressed(this::handlePressed);
         this.setOnMouseReleased(this::handleReleased);
