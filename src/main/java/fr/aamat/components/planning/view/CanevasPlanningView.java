@@ -1,5 +1,6 @@
 package fr.aamat.components.planning.view;
 
+import fr.aamat.components.planning.viewmodel.PlanningViewModel;
 import javafx.geometry.Insets;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.input.MouseEvent;
@@ -13,24 +14,20 @@ public class CanevasPlanningView extends VBox {
     private final HBox hBox;
     private final ScrollBar scrollBar;
 
-    private final Integer largeurCellule = 60;
-    private final Integer hauteurCellule = 30;
+    public CanevasPlanningView(PlanningViewModel planningViewModel) {
 
-    public CanevasPlanningView() {
-
-        this.entetePlanningView = new EntetePlanningView(largeurCellule, hauteurCellule);
-        this.enteteMachineView = new EnteteMachineView(largeurCellule, hauteurCellule);
+        this.entetePlanningView = new EntetePlanningView(planningViewModel);
+        this.enteteMachineView = new EnteteMachineView(planningViewModel);
         this.hBox = new HBox(enteteMachineView);
         this.scrollBar = new ScrollBar();
 
         this.getChildren().addAll(this.entetePlanningView, this.hBox, this.scrollBar);
 
-        setMargin(entetePlanningView, new Insets(0, 0, 0, largeurCellule + 1));
+        setMargin(entetePlanningView, new Insets(0, 0, 0, planningViewModel.getCurrentCellSize().get().getWidthCell() + 1));
 
         this.setOnMousePressed(this::handlePressed);
         this.setOnMouseReleased(this::handleReleased);
         this.setOnMouseDragged(this::handleCursorMoved);
-        this.setOnMouseMoved(this::handleCursorMoved);
 
     }
 

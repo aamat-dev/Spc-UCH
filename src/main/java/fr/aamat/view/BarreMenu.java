@@ -1,6 +1,5 @@
 package fr.aamat.view;
 
-import fr.aamat.components.planning.view.MainPlanningView;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -26,7 +25,7 @@ public class BarreMenu extends MenuBar {
         this.getMenus().add(fichier);
 
         //Menu Edition
-        MenuItem planning = new MenuItem("Planning");
+        MenuItem planning = new MenuItem("PlanningViewModel");
         planning.setOnAction(e -> showPlanning());
 
         Menu edition = new Menu("Edition");
@@ -44,7 +43,7 @@ public class BarreMenu extends MenuBar {
     }
 
     private void showPlanning() {
-        mainView.setCenterContent(new MainPlanningView());
+
     }
 
     private void showAbout() {
