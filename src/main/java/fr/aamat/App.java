@@ -37,6 +37,8 @@ public class App extends Application {
             component.initComponent(context);
         }
 
+
+
         stage.setTitle("SpUch - Suivi de production UCH");
         stage.getIcons().add(new Image(getClass().getResource("/img/logo_UCH.png").toExternalForm()));
         stage.setScene(new Scene(mainView, 1200, 800));

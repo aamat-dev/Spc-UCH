@@ -2,19 +2,23 @@ package fr.aamat.components.planning.view;
 
 import fr.aamat.components.planning.viewmodel.PlanningViewModel;
 import fr.aamat.model.Machine;
+import fr.aamat.model.Production;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EnteteMachineView extends ScrollPane {
 
     private final GridPane grille;
     private final ObservableList<Machine> listeMachine;
 
-    private final int largeurCellule;
-    private final int hauteurCellule;
+    private int largeurCellule;
+    private int hauteurCellule;
 
     public EnteteMachineView(PlanningViewModel planningViewModel) {
 
@@ -24,7 +28,8 @@ public class EnteteMachineView extends ScrollPane {
         this.vbarPolicyProperty().set(ScrollBarPolicy.NEVER);
         this.hbarPolicyProperty().set(ScrollBarPolicy.NEVER);
 
-        this.listeMachine = FXCollections.observableArrayList(new Machine("B1", Machine.Parc.CN, true, productions), new Machine("B2", Machine.Parc.CN, true, productions));
+        List<Production> productions = new ArrayList();
+        this.listeMachine = FXCollections.observableArrayList(new Machine("B1", Machine.Parc.CN, true,productions), new Machine("B2", Machine.Parc.CN, true,productions));
 
         this.grille = new GridPane();
         setEnteteMachine();

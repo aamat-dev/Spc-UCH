@@ -40,16 +40,19 @@ public class MainPlanningView extends BorderPane {
     }
 
     private void setScale(ScrollEvent scrollEvent) {
-        int width;
-        int height;
-        if (scrollEvent.getDeltaY() < 0) {
-            width = this.planningViewModel.getCurrentCellSize().get().getWidthCell() + 10;
-            height = this.planningViewModel.getCurrentCellSize().get().getHeightCell() + 1;
-        } else {
-            width = this.planningViewModel.getCurrentCellSize().get().getWidthCell() - 10;
-            height = this.planningViewModel.getCurrentCellSize().get().getHeightCell() - 1;
+        if (scrollEvent.isShiftDown()) {
+            int width;
+            int height;
+            if (scrollEvent.getDeltaX() < 0) {
+                width = this.planningViewModel.getCurrentCellSize().get().getWidthCell() + 10;
+                height = this.planningViewModel.getCurrentCellSize().get().getHeightCell() + 1;
+            } else {
+                width = this.planningViewModel.getCurrentCellSize().get().getWidthCell() - 10;
+                height = this.planningViewModel.getCurrentCellSize().get().getHeightCell() - 1;
+            }
+            this.planningViewModel.getCurrentCellSize().set(new CellSize(width, height));
+            System.out.println(width);
         }
-        this.planningViewModel.getCurrentCellSize().set(new CellSize(width, height));
     }
 }
 
